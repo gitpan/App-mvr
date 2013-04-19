@@ -1,5 +1,5 @@
 ---
-abstract: move
+abstract: 'like mv, but clever'
 author:
   - 'Mike Doherty <doherty@cpan.org>'
 build_requires:
@@ -38,5 +38,6 @@ requires:
   warnings: 0
 resources:
   bugtracker: https://github.com/doherty/App-mvr/issues
+  homepage: http://metacpan.org/release/App-mvr/
   repository: git://github.com/doherty/App-mvr.git
-version: 0.001
+version: 0.002

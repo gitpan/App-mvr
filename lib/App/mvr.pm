@@ -2,8 +2,8 @@ package App::mvr;
 use v5.14.0;
 use strict;
 use warnings;
-# ABSTRACT: move
-our $VERSION = '0.001'; # VERSION
+# ABSTRACT: like mv, but clever
+our $VERSION = '0.002'; # VERSION
 
 use Exporter qw(import);
 our @EXPORT = qw(mvr);
@@ -103,11 +103,11 @@ __END__
 
 =head1 NAME
 
-App::mvr - move
+App::mvr - like mv, but clever
 
 =head1 VERSION
 
-version 0.001
+version 0.002
 
 =head1 FUNCTIONS
 
@@ -143,6 +143,8 @@ destination.
 This function is not exported by default.
 
 =head1 AVAILABILITY
+
+The project homepage is L<http://metacpan.org/release/App-mvr/>.
 
 The latest version of this module is available from the Comprehensive Perl
 Archive Network (CPAN). Visit L<http://www.perl.com/CPAN/> to find a CPAN

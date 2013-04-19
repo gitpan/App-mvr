@@ -2,9 +2,9 @@
 use v5.14.0;
 use strict;
 use warnings;
-our $VERSION = '0.001'; # VERSION
+our $VERSION = '0.002'; # VERSION
 # PODNAME: mvr
-# ABSTRACT: move-rename/mover
+# ABSTRACT: like mv, but clever
 
 use Pod::Usage qw(pod2usage);
 use Getopt::Long;
@@ -40,17 +40,17 @@ __END__
 
 =head1 NAME
 
-mvr - move-rename/mover
+mvr - like mv, but clever
 
 =head1 VERSION
 
-version 0.001
+version 0.002
 
 =head1 SYNOPSIS
 
     mv source.txt dest.txt
-    mv source{1,2,3}.txt dest/  # don't care if source1.txt already exists
-    mv DSC*.jpg ~/Pictures      # don't care if DSC0001.jpg already exists
+    mv source{1,2,3}.txt dest # don't care if source1.txt already exists
+    mv DSC*.jpg ~/Pictures    # don't care if DSC0001.jpg already exists
 
 =head1 DESCRIPTION
 
@@ -90,6 +90,8 @@ C<mvr> actually means "move-rename" but has the added coincidental feature of
 being the word "mover" with the vowels removed for Maximum Trendiness.
 
 =head1 AVAILABILITY
+
+The project homepage is L<http://metacpan.org/release/App-mvr/>.
 
 The latest version of this module is available from the Comprehensive Perl
 Archive Network (CPAN). Visit L<http://www.perl.com/CPAN/> to find a CPAN
