@@ -40,4 +40,4 @@ resources:
   bugtracker: https://github.com/doherty/App-mvr/issues
   homepage: http://metacpan.org/release/App-mvr/
   repository: git://github.com/doherty/App-mvr.git
-version: 0.002
+version: 0.003

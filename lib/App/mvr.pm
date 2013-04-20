@@ -3,7 +3,7 @@ use v5.14.0;
 use strict;
 use warnings;
 # ABSTRACT: like mv, but clever
-our $VERSION = '0.002'; # VERSION
+our $VERSION = '0.003'; # VERSION
 
 use Exporter qw(import);
 our @EXPORT = qw(mvr);
@@ -107,7 +107,7 @@ App::mvr - like mv, but clever
 
 =head1 VERSION
 
-version 0.002
+version 0.003
 
 =head1 FUNCTIONS
 

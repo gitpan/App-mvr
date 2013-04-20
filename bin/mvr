@@ -1,8 +1,10 @@
 #!/usr/bin/env perl
+package
+    mvr;
 use v5.14.0;
 use strict;
 use warnings;
-our $VERSION = '0.002'; # VERSION
+our $VERSION = '0.003'; # VERSION
 # PODNAME: mvr
 # ABSTRACT: like mv, but clever
 
@@ -21,6 +23,11 @@ GetOptions( \%opts,
     'deduplicate!',
 ) or pod2usage( -verbose => 1 );
 pod2usage( -verbose => 2 ) if $opts{help};
+
+if ($opts{version}) {
+    say __PACKAGE__ . ' version ' . (__PACKAGE__->VERSION // 'dev');
+    exit;
+}
 
 my @source;
 push @source, shift
@@ -44,7 +51,7 @@ mvr - like mv, but clever
 
 =head1 VERSION
 
-version 0.002
+version 0.003
 
 =head1 SYNOPSIS
 
@@ -75,11 +82,11 @@ Provides additional output.
 
 =item B<--help>, -?
 
-Show this documentation
+Show this documentation.
 
 =item B<--version>
 
-Show version information
+Show version information.
 
 =back
 
