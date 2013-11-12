@@ -13,6 +13,7 @@ dist.ini
 lib/App/mvr.pm
 t/00-compile.t
 t/errors.t
+t/mtime.t
 t/mvr.t
 t/script.t
 xt/author/critic.t

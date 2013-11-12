@@ -41,7 +41,7 @@ subtest verbosity => sub {
     path($wd, $_)->touchpath for qw( verbose d/verbose );
     {
         my ($out, $err) = capture {
-            local $App::mvr::VERBOSE = 1;
+            local $App::mvr::VERBOSE = 2;
             mvr(
                 source => path($wd, 'verbose'),
                 dest => path($wd, 'd', 'verbose')
@@ -55,7 +55,7 @@ subtest verbosity => sub {
     path($wd, $_)->touchpath for qw( quiet d/quiet );
     {
         my ($out, $err) = capture {
-            local $App::mvr::VERBOSE;
+            local $App::mvr::VERBOSE = 0;
             mvr(
                 source => path($wd, 'quiet'),
                 dest =>path($wd, 'd', 'quiet' )
@@ -76,7 +76,7 @@ subtest dupes => sub {
     }
 
     my ($out, $err) = capture {
-        local $App::mvr::VERBOSE = 1;
+        local $App::mvr::VERBOSE = 2;
         mvr(
             deduplicate => 1,
             source => path($wd, 1),
@@ -87,7 +87,9 @@ subtest dupes => sub {
     like $err => qr{\QFile already exists}, 'name conflict detected';
     like $err => qr{\Qchecking for duplication}, 'checking for duplication';
     like $err => qr{\Qare duplicates}, 'files correctly detected to be duplicates';
-    is_deeply [path($wd)->children], [path($wd, 2)], 'only one file is left';
+    my @remaining_files = map { $_->basename } path($wd)->children;
+    is_deeply \@remaining_files, [qw( 2 )], 'only one file is left'
+        or diag explain \@remaining_files;
 };
 
 subtest 'no dupes' => sub {
@@ -100,7 +102,7 @@ subtest 'no dupes' => sub {
     }
 
     my ($out, $err) = capture {
-        local $App::mvr::VERBOSE = 1;
+        local $App::mvr::VERBOSE = 2;
         mvr(
             deduplicate => 1,
             source => path($wd, 1),

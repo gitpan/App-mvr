@@ -4,7 +4,7 @@ package
 use v5.14.0;
 use strict;
 use warnings;
-our $VERSION = '0.004'; # VERSION
+our $VERSION = '0.005'; # VERSION
 # PODNAME: mvr
 # ABSTRACT: like mv, but clever
 
@@ -18,7 +18,7 @@ my %opts = ( quiet => sub { $verbose = 0 }, verbose => \$verbose, deduplicate =>
 GetOptions( \%opts,
     'help|?',
     'version',
-    'verbose!',
+    'verbose|v+',
     'quiet!',
     'deduplicate!',
 ) or pod2usage( -verbose => 1 );
@@ -43,7 +43,7 @@ __END__
 
 =pod
 
-=encoding utf-8
+=encoding UTF-8
 
 =head1 NAME
 
@@ -51,7 +51,7 @@ mvr - like mv, but clever
 
 =head1 VERSION
 
-version 0.004
+version 0.005
 
 =head1 SYNOPSIS
 
@@ -76,9 +76,10 @@ destination files have the same contents. If they do, the source file will
 simply be removed, rather than adding another copy of the file to the
 destination. Use C<--no-deduplicate> to disable this behaviour.
 
-=item B<--verbose>
+=item B<--verbose>, --quiet
 
-Provides additional output.
+Provides output describing operations. Use C<--quiet> to silence all
+non-error output.
 
 =item B<--help>, -?
 
